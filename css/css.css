@@ -370,7 +370,7 @@ html, body {
     transition-duration: 1s;
     transition-timing-function: ease-in;
 }
-.shareWrapper.hover {
+.shareWrapper:hover  {
     width: 250px;
     height: 32px;
     -moz-transition-timing-function: ease-out;
@@ -381,7 +381,7 @@ html, body {
     -ms-transition-timing-function: ease-out;
     transition-timing-function: ease-out;
 }
-.shareWrapper.hover .shareWrapperInner {
+.shareWrapper:hover  .shareWrapperInner {
     width: 250px;
     height: 30px;
     border-radius: 0px;
