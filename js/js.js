@@ -59,4 +59,6 @@ $(function(){
     $(document).on('click', function() {
         $('.shareWrapper.hover').removeClass('hover');
     });
+
+    $('.nyan').bind('click', function() {window.location.href = encodeURI('/yas/?searchid=1948392&text=котики&web=0');});
 });
