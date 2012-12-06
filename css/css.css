@@ -1,5 +1,5 @@
 html, body {
-    background-color: #000; 
+    background-color: #000;
     color: #fff;
     font-family: Verdana,Arial,sans-serif;
     line-height: 1.5em;
@@ -16,6 +16,7 @@ html, body {
     width: 100%;
     height: 33%;
     -webkit-transition: height 3s ease-out;
+    -ms-transition:  height 3s ease-in;
     -o-transition: height 3s ease-out;
     -moz-transition: height 3s ease-out;
     transition: height 3s ease-out;
@@ -23,6 +24,7 @@ html, body {
 .second:hover {
     height: 80%;
     -webkit-transition: height 3s ease-in;
+    -ms-transition:  height 3s ease-in;
     -o-transition: height 3s ease-in;
     -moz-transition: height 3s ease-in;
     transition: height 3s ease-in;
@@ -33,69 +35,59 @@ html, body {
     height: 33%;
 }
 /*============================================*/
-.lights {
-    position: absolute;
-    top: 100px;
-    left: 100px;
-    border: 1px solid black;
-    border-radius: 6px;
-    background-color: black;
-    -webkit-transition-property: all;
-    -webkit-transition-delay: 1.5s;
+/* No vendor */
+@keyframes lr {
+    0% {
+        animation-timing-function: ease-in;
+    }
+    50% {
+        animation-timing-function: ease-out;
+        left: 100%;
+        /*transform: matrix(1, 1, 0, -1, 1, 1);*/
+    }
+    100% {
+        animation-timing-function: ease-in;
+    }
 }
-.lights:hover {
-    left: 85px;
-    border-radius: 12px;
-    -webkit-transition-property: all;
-    -webkit-transition-delay: 0.5s;
+@keyframes lr_second {
+    0% {
+        animation-timing-function: ease-in;
+    }
+    50% {
+        animation-timing-function: ease-in;
+    }
+    100% {
+        animation-timing-function: ease-in;
+        left: 100%;
+        transform: matrix(-1, 0, 0, 1, 0, 0);
+    }
 }
-.light {
-    width: 30px;
-    height: 30px;
-    border-radius: 15px;
-    margin: 2px auto;
-    -webkit-transition-timing-function: cubic-bezier(1,0,1,0);
-    -webkit-transition-duration: 0.5s;
+@keyframes lr_third {
+    0% {
+        animation-timing-function: ease-in;
+    }
+    50% {
+        animation-timing-function: ease-in;
+    }
+    100% {
+        animation-timing-function: ease-in;
+        left: 100%;
+        transform: matrix(-1, 1, 0, 1, 0, 0);
+    }
 }
-.lights:hover .light{
-    -webkit-transition-timing-function: cubic-bezier(1,0,1,0);
+@keyframes ud {
+    0% {
+        animation-timing-function: ease-in;
+        transform: rotate(180deg);
+    }
+    50% {
+        animation-timing-function: ease-in;
+    }
+    100% {
+        animation-timing-function: ease-in;
+        top: 100%;
+    }
 }
-.redlight {
-    background-color: #ff0000;
-    -webkit-transition-delay: 1.0s;
-}
-.lights:hover .redlight{
-    /*-webkit-transform: translate(-15px, 0px);*/
-    -webkit-transition-delay: 0s;
-    width: 60px;
-    height: 60px;
-    border-radius: 30px;
-    -webkit-transition-property: all;
-}
-.yellowlight {
-    background-color: #ffff00;
-    -webkit-transition-delay: 0.5s;
-}
-.lights:hover .yellowlight{
-    /*-webkit-transform: translate(-15px, 0px);*/
-    -webkit-transition-delay: 0.5s;
-    width: 60px;
-    height: 60px;
-    border-radius: 30px;
-    -webkit-transition-property: all;
-}
-.greenlight {
-    background-color: #00ff00;
-}
-.lights:hover .greenlight{
-    /*-webkit-transform: translate(-15px, 0px);*/
-    -webkit-transition-delay: 1.0s;
-    width: 60px;
-    height: 60px;
-    border-radius: 30px;
-    -webkit-transition-property: all;
-}
-/*============================================*/
 /* WEBKIT */
 @-webkit-keyframes lr {
     0% {
@@ -120,7 +112,7 @@ html, body {
     100% {
         -webkit-animation-timing-function: ease-in;
         left: 100%;
-        -webkit-transform: matrix(-1, 0, 0, 1, 0, 0); 
+        -webkit-transform: matrix(-1, 0, 0, 1, 0, 0);
     }
 }
 @-webkit-keyframes lr_third {
@@ -133,7 +125,7 @@ html, body {
     100% {
         -webkit-animation-timing-function: ease-in;
         left: 100%;
-        -webkit-transform: matrix(-1, 1, 0, 1, 0, 0); 
+        -webkit-transform: matrix(-1, 1, 0, 1, 0, 0);
     }
 }
 @-webkit-keyframes ud {
@@ -153,7 +145,7 @@ html, body {
 @-moz-keyframes lr {
     0% {
         -moz-animation-timing-function: ease-in;
-        left: 0px;
+        left: 0;
     }
     50% {
         -moz-animation-timing-function: ease-in;
@@ -161,7 +153,7 @@ html, body {
     100% {
         -moz-animation-timing-function: ease-in;
         left: 100%;
-        -moz-transform: matrix(1, 0, 0, -1, 0, 0); 
+        -moz-transform: matrix(1, 0, 0, -1, 0, 0);
     }
 }
 @-moz-keyframes lr_second {
@@ -174,7 +166,7 @@ html, body {
     100% {
         -moz-animation-timing-function: ease-in;
         left: 100%;
-        -moz-transform: matrix(-1, 0, 0, 1, 0, 0); 
+        -moz-transform: matrix(-1, 0, 0, 1, 0, 0);
     }
 }
 @-moz-keyframes lr_third {
@@ -187,13 +179,13 @@ html, body {
     100% {
         -moz-animation-timing-function: ease-in;
         left: 100%;
-        -moz-transform: matrix(-1, 1, 0, 1, 0, 0); 
+        -moz-transform: matrix(-1, 1, 0, 1, 0, 0);
     }
 }
 @-moz-keyframes lr_second {
     0% {
         -moz-animation-timing-function: ease-in;
-        left: 0px;
+        left: 0;
     }
     50% {
         -moz-animation-timing-function: ease-in;
@@ -201,14 +193,14 @@ html, body {
     100% {
         -moz-animation-timing-function: ease-in;
         left: 100%;
-        -moz-transform: matrix(1, 0, 0, -1, 1, 1); 
+        -moz-transform: matrix(1, 0, 0, -1, 1, 1);
     }
 }
 @-moz-keyframes ud {
     0% {
         -moz-animation-timing-function: ease-in;
         -moz-transform: rotate(180deg);
-        top: 0px;
+        top: 0;
     }
     50% {
         -moz-animation-timing-function: ease-in;
@@ -221,8 +213,8 @@ html, body {
 /*============================================*/
 .box {
     position: absolute;
-    left: 0px;
-    top: 0px;
+    left: 0;
+    top: 0;
     width: 155px;
     height: 300px;
     opacity: 0.5;
@@ -231,74 +223,63 @@ html, body {
 .column {
     height: 100%;
     position: relative;
-    left: 0px;
-    -webkit-animation-name: lr;
-    -webkit-animation-duration: 3s;
-    -webkit-animation-direction: alternate;
-    -webkit-animation-iteration-count: infinite;
-    -moz-animation-name: lr;
-    -moz-animation-duration: 3s;
-    -moz-animation-direction: alternate;
-    -moz-animation-iteration-count: infinite;
+    left: 0;
+    -webkit-animation: 'lr' 3s alternate infinite;
+    -moz-animation: lr 3s alternate infinite;
+    -o-animation: lr 3s alternate infinite;
+    -ms-animation: 'lr' 3s alternate infinite;
+    animation: lr 3s alternate infinite;
 }
 .ball, .nyan_ball {
     position: relative;
-    left: 0px;
-    bottom: 0px;
+    left: 0;
+    bottom: 0;
     width: 10px;
     height: 10px;
     border-radius: 100%;
     background: red;
-    -webkit-animation-name: ud;
-    -webkit-animation-duration: 2.3s;
-    -webkit-animation-direction: alternate;
-    -webkit-animation-iteration-count: infinite;
-    -moz-animation-name: ud;
-    -moz-animation-duration: 2.3s;
-    -moz-animation-direction: alternate;
-    -moz-animation-iteration-count: infinite;
+    -webkit-animation: 'ud' 2.3s alternate infinite;
+    -moz-animation: ud 2.3s alternate infinite;
+    -o-animation: ud 2.3s alternate infinite;
+    -ms-animation: 'ud' 2.3s alternate infinite;
+    animation: ud 2.3s alternate infinite;
 }
 .column_second {
     height: 100%;
     position: relative;
-    left: 0px;
-    -webkit-animation-name: lr_second;
-    -webkit-animation-duration: 5s;
-    -webkit-animation-direction: alternate;
-    -webkit-animation-iteration-count: infinite;
-    -moz-animation-name: lr_second;
-    -moz-animation-duration: 5s;
-    -moz-animation-direction: alternate;
-    -moz-animation-iteration-count: infinite;
+    left: 0;
+    -webkit-animation: 'lr_second' 5s alternate infinite;
+    -moz-animation: lr_second 5s alternate infinite;
+    -o-animation: lr_second 5s alternate infinite;
+    -ms-animation: 'lr_second' 5s alternate infinite;
+    animation: lr_second 5s alternate infinite;
 }
 .column_third {
     height: 100%;
     position: relative;
-    left: 0px;
-    -webkit-animation-name: lr_third;
-    -webkit-animation-duration: 10s;
-    -webkit-animation-direction: alternate;
-    -webkit-animation-iteration-count: infinite;
-    -moz-animation-name: lr_third;
-    -moz-animation-duration: 10s;
-    -moz-animation-direction: alternate;
-    -moz-animation-iteration-count: infinite;
+    left: 0;
+    -webkit-animation: 'lr_third' 10s alternate infinite;
+    -moz-animation: lr_third 10s alternate infinite;
+    -o-animation: lr_third 10s alternate infinite;
+    -ms-animation: 'lr_third' 10s alternate infinite;
+    animation: lr_third 10s alternate infinite;
 }
 /* =================================== */
 .nyan {
     width: 70px;
     height: 100px;
-    background: url(/i/nyan-cat-vert_small.gif) 0 0 no-repeat transparent;
+    background: url(../i/nyan-cat-vert_small.gif) 0 0 no-repeat transparent;
 }
 .nyan_type_vertical {
     width: 280px;
     height: 400px;
-    background: url(/i/nyan-cat-vert.gif) 0 0 no-repeat transparent;
+    background: url(../i/nyan-cat-vert.gif) 0 0 no-repeat transparent;
     display: none;
     opacity: 1;
     -webkit-transition: opacity 5s;
     -o-transition: opacity 5s;
     -moz-transition: opacity 5s;
+    -ms-transition: opacity 5s;
     transition: opacity 5s;
 }
 .nyan_type_vertical:hover {
@@ -306,12 +287,13 @@ html, body {
     -webkit-transition: opacity 1s;
     -o-transition: opacity 1s;
     -moz-transition: opacity 1s;
+    -ms-transition: opacity 1s;
     transition: opacity 1s;
 }
 .wrapper {
     position: absolute;
-    top: 0px;
-    left: 0px;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     padding: 0 280px 400px 0;
@@ -323,8 +305,8 @@ html, body {
 /* ================================= */
 .shareWrapper {
     position: absolute;
-    top: 0px;
-    right: 0px;
+    top: 0;
+    right: 0;
     width: 20px;
     height: 32px;
     overflow: hidden;
@@ -384,7 +366,7 @@ html, body {
 .shareWrapper:hover  .shareWrapperInner {
     width: 250px;
     height: 30px;
-    border-radius: 0px;
+    border-radius: 0;
     padding-left: 5px;
     border-left: 10px solid #000000;
     -moz-transition-timing-function: ease-out;
