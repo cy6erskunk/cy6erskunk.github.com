@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="css/md.css">
+        <title>JS styleguide</title>
+    </head>
+    <body>
+        <h1 id="javascript-styleguide">javascript styleguide</h1>
+
+        <h2 id="basic">Basic</h2>
+
+        <ul>
+        <li>никаких табов, только 4 пробела, только хардкор</li>
+        <li>стараемся не разводить дико длинных строк, 80 символов – это хорошее мягкое ограничение</li>
+        <li>мы любим комментарии, вставляем их везде, где только можно, чтобы через месяц/год/столетие открывший код мог быстро разобраться (не надо утрировать и писать что-то вроде
+        <code>
+        i = 0; // Set i to zero
+        </code>
+        )
+        </li>
+        <li>когда мы пишем комментарии, мы не гнушаемся использовать JSDoc-подобные комментарии</li>
+        <li>инлайн комментарии допускаются</li>
+        <li>мы определяем переменные до их использования</li>
+        <li>неплохо бы писать однострочный комментарий у определения переменной, либо перечислять их в качестве @param в описании блока</li>
+        <li>переменные именуются в camelCase</li>
+        <li>классы именуются FirstUpperCase</li>
+        <li>«приватные» свойства/методы с _</li>
+        <li>мы используем литералы [] и {}, а не new Array(), new Object()</li>
+        <li>мы стараемся использовать операторы === и !==</li>
+        <li>стараемся минимизировать количество глобальных функций/переменных («не срать в global»)
+        Стандартные имена переменных:
+        var self = this;
+        evt – для событий
+        el – для DOM элементов
+        $el – для DOM элементов в jQuery обертке
+        мы доопределяем прототип объектом</li>
+        </ul>
+
+        <pre><code>Class.prototype = {
+            ...
+        };
+        </code></pre>
+
+        <ul>
+        <li>eval (строка в setTimeout, setIterval, конструкторе Function – то же самое) – ЗЛО!</li>
+        <li>with – ЗЛО!</li>
+        <li><p>continue – ЗЛО!</p>
+
+        <h2>Функции</h2></li>
+        <li><p>определяем функции только через var blah = function () {}; вместо function blah() {};
+        т.е. используем только Function expressions, но не Function declarations
+        см. подробнее <a href="http://kangax.github.com/nfe/">у kangax</a> и <a href="http://dmitrysoshnikov.com/ecmascript/ru-chapter-5-functions/">у сошникова</a>
+        там же написано про баг с именованием функций в Function expressions</p></li>
+        <li>«мгновенные функции» мы заворачиваем в круглые скобки, так как это делает код читабельнее (явно даем знать с самого начала, что мы не определяем/присваиваем функцию, а хотим получить результат ее исполнения)</li>
+        <li>список параметров анонимной функции отделяется пробелом от ключевого слова function, так как это ключевое слово, а не название функции</li>
+        <li>открывающая фигурная скобка { ставится через пробел после закрывающей круглой скобки ) списка параметров
+        <ul>
+        <li>закрывающая фигурная скобка } ставится на отдельной строке, с тем же отступом, что и у строки, в которой начинается определение функции
+        Пример:</li>
+        </ul></li>
+        </ul>
+
+        <pre><code>var outer = function (c, d) {
+            var e = c * d;
+
+            var inner = function (a, b) {
+                return (e * a) + b;
+            }
+
+            (function () {
+                return 1;
+            }());
+
+            return inner(0, 1);
+        }
+        </code></pre>
+
+        <h2 id="new">new</h2>
+
+        <p>мы выделяем создание объекта скобками, если хотим сразу получить его свойство:</p>
+
+        <pre><code>// Хорошо
+        var a = (new Class()).prop;
+
+        // Плохо
+        var a = new Class().prop;
+        </code></pre>
+
+        <h2 id="-2">Выражения</h2>
+
+        <ul>
+        <li>мы обязательно ставим ; в конце выражения</li>
+        <li>вложенный блок выражений, обернутый в {}, должен быть сдвинут на 4 пробела относительно родительского блока</li>
+        <li>открывающая фигурная скобка { ставится в конце строки</li>
+        <li>закрывающая фигурная скобка } ставится на в начале строки, следующей за последним выражением блока, с тем же отступом, что и строка, в которой содержится открывающая фигурная скобка { блока</li>
+        <li>в фигурные скобки заворачиваются даже однострочные блоки, если они являются частью управляющих последовательностей, таких как if, for...</li>
+        <li>мы стараемся не писать длинных/многострочных условий для управляющих конструкций, заменяя их при необходимости переменными
+        return</li>
+        <li>если возвращается значение, мы не оборачиваем его скобками</li>
+        <li>выражение для return должно начинаться на той же строке, что и return, чтобы избежать проблему с неявной вставкой ;</li>
+        <li>мы стараемся использовать единственный return в конце функции для улучшения читабельности кода
+        Примеры:</li>
+        </ul>
+
+        <pre><code>if (condition) {
+            statements
+        }
+
+        if (condition) {
+            statements
+        } else {
+            statements
+        }
+
+        if (condition) {
+            statements
+        } else if (condition) {
+            statements
+        } else {
+            statements
+        }
+        for (initialization; condition; update) {
+            statements
+        }
+
+        for (variable in object) {
+            if (filter) {
+                statements
+            }
+        }
+
+        for (variable in object) {
+            if (object.hasOwnProperty(variable)) {
+                statements
+            }
+        }
+
+        while (condition) {
+            statements
+        }
+
+        do {
+            statements
+        } while (condition);
+
+        switch (expression) {
+        case expression:
+            statements
+        default:
+            statements
+        }
+
+        try {
+            statements
+        } catch (variable) {
+            statements
+        }
+
+        try {
+            statements
+        } catch (variable) {
+            statements
+        } finally {
+            statements
+        }
+        </code></pre>
+
+    </body>
+</html>
