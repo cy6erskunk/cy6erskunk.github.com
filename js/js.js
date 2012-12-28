@@ -12,7 +12,7 @@
 
         (function (){
             (function (){
-                var offset = parseInt($(elem).css('bottom'));
+                var offset = parseInt($(elem).css('bottom'), 10);
 
                 offset += o.nyanSpeed;
                 if (offset >=  (o.frameHeight + o.nyanHeight)) {
@@ -28,8 +28,17 @@
     };
 })(jQuery);
 
+var lolkeys = [], sublime = "73,68,68,81,68", jsguide = "73,68,75,70,65";
+$(document).keydown(function(e) {
+    lolkeys.push( e.keyCode );
+    if ( lolkeys.toString().indexOf( sublime ) >= 0 ) {
+        window.location = '/sublime.html';
+    } else if ( lolkeys.toString().indexOf (jsguide ) >= 0) {
+        window.location = '/js.html';
+    }
+});
+
 $(function(){
-    //$('.first').stupidrainbow({crazyBlink: true});
     $('.first').stupidrainbow({
         arr: [ 0, 255, 0],
         pos: 2,
