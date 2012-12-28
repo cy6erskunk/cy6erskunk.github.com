@@ -1,3 +1,4 @@
+/*global $:false*/
 (function () {
     $.fn.evilbgslider = function (elem,options) {
         var o = $.extend({
@@ -11,7 +12,7 @@
         $(elem).show().css({'position': 'absolute', 'bottom': '-' + o.nyanHeight + 'px', 'left' : Math.floor(Math.random() * (o.frameWidth - o.nyanWidth)) + 'px'});
 
         (function (){
-            (function (){
+            var nyan = function (){
                 var offset = parseInt($(elem).css('bottom'), 10);
 
                 offset += o.nyanSpeed;
@@ -20,8 +21,9 @@
                     $(elem).css('left', Math.floor(Math.random() * (o.frameWidth - o.nyanWidth)) + 'px');
                 }
                 $(elem).css('bottom', offset + 'px');
-                setTimeout(arguments.callee, 50);
-            })();
+                setTimeout(nyan, 50);
+            };
+            nyan();
         })();
 
         return this;
@@ -62,7 +64,6 @@ $(function(){
 
     $('.shareWrapper').on('click', function (ev) {
         $(this).toggleClass('hover');
-        console.log('trololo');
         ev.stopPropagation();
     });
     $(document).on('click', function() {

@@ -1,0 +1,10 @@
+{
+  "name": "lolnyan",
+  "version": "0.2.0",
+  "private": true,
+  "devDependencies": {
+    "grunt": "~0.3.17",
+    "grunt-contrib-stylus": "~0.3.1",
+    "grunt-reloadr": "~0.1.2"
+  }
+}
