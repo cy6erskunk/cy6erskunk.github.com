@@ -1,18 +1,18 @@
-/*global $:false*/
+/*global $:false, jQuery: false*/
 (function () {
-    $.fn.evilbgslider = function (elem,options) {
+    $.fn.evilbgslider = function (elem, options) {
         var o = $.extend({
                 nyanSpeed: 10,
-                frameWidth: parseInt($(this).css('width'),10),
-                frameHeight: parseInt($(this).css('height'),10),
-                nyanWidth: parseInt($(elem).css('width'),10),
-                nyanHeight: parseInt($(elem).css('height'),10)
+                frameWidth: parseInt($(this).css('width'), 10),
+                frameHeight: parseInt($(this).css('height'), 10),
+                nyanWidth: parseInt($(elem).css('width'), 10),
+                nyanHeight: parseInt($(elem).css('height'), 10)
             }, options);
 
         $(elem).show().css({'position': 'absolute', 'bottom': '-' + o.nyanHeight + 'px', 'left' : Math.floor(Math.random() * (o.frameWidth - o.nyanWidth)) + 'px'});
 
-        (function (){
-            var nyan = function (){
+        (function () {
+            var nyan = function () {
                 var offset = parseInt($(elem).css('bottom'), 10);
 
                 offset += o.nyanSpeed;
@@ -30,17 +30,17 @@
     };
 })(jQuery);
 
-var lolkeys = [], sublime = "73,68,68,81,68", jsguide = "73,68,75,70,65";
-$(document).keydown(function(e) {
-    lolkeys.push( e.keyCode );
-    if ( lolkeys.toString().indexOf( sublime ) >= 0 ) {
+var lolkeys = [], sublime = '73,68,68,81,68', jsguide = '73,68,75,70,65';
+$(document).keydown(function (e) {
+    lolkeys.push(e.keyCode);
+    if (lolkeys.toString().indexOf(sublime) >= 0) {
         window.location = '/sublime.html';
-    } else if ( lolkeys.toString().indexOf (jsguide ) >= 0) {
+    } else if (lolkeys.toString().indexOf(jsguide) >= 0) {
         window.location = '/js.html';
     }
 });
 
-$(function(){
+$(function () {
     $('.first').stupidrainbow({
         arr: [ 0, 255, 0],
         pos: 2,
@@ -66,9 +66,9 @@ $(function(){
         $(this).toggleClass('hover');
         ev.stopPropagation();
     });
-    $(document).on('click', function() {
+    $(document).on('click', function () {
         $('.shareWrapper.hover').removeClass('hover');
     });
 
-    $('.nyan').bind('click', function() {window.location.href = encodeURI('/yas/?searchid=1948392&text=котики&web=0');});
+    $('.nyan').bind('click', function () {window.location.href = encodeURI('/yas/?searchid=1948392&text=котики&web=0'); });
 });
