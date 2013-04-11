@@ -1,45 +1,6 @@
-.wrapper {
-/*padding-top 1em;*/
-  margin: 0 auto;
-  width: 44em;
-}
-ul {
-  list-style-type: none;
-  padding-left: 0;
-}
-li {
-  padding: 1em;
-  margin-bottom: 0.5em;
-/*background-color #aeaeae;*/
-  -webkit-box-shadow: 0.1em -0.1em 0 0.1em rgba(0,0,0,0.2), inset 0 0 0 0.15em rgba(0,0,0,0.4), -0.1em 0.1em 0 0.1em rgba(0,0,0,0.2);
-  -moz-box-shadow: 0.1em -0.1em 0 0.1em rgba(0,0,0,0.2), inset 0 0 0 0.15em rgba(0,0,0,0.4), -0.1em 0.1em 0 0.1em rgba(0,0,0,0.2);
-  -o-box-shadow: 0.1em -0.1em 0 0.1em rgba(0,0,0,0.2), inset 0 0 0 0.15em rgba(0,0,0,0.4), -0.1em 0.1em 0 0.1em rgba(0,0,0,0.2);
-  -ms-box-shadow: 0.1em -0.1em 0 0.1em rgba(0,0,0,0.2), inset 0 0 0 0.15em rgba(0,0,0,0.4), -0.1em 0.1em 0 0.1em rgba(0,0,0,0.2);
-  box-shadow: 0.1em -0.1em 0 0.1em rgba(0,0,0,0.2), inset 0 0 0 0.15em rgba(0,0,0,0.4), -0.1em 0.1em 0 0.1em rgba(0,0,0,0.2);
-  -webkit-border-radius: 0.5em;
-  -moz-border-radius: 0.5em;
-  -o-border-radius: 0.5em;
-  -ms-border-radius: 0.5em;
-  border-radius: 0.5em;
-  text-align: center;
-}
-a {
-  text-decoration: none;
-}
-.gap {
-  padding: 0;
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
-  -o-box-shadow: none;
-  -ms-box-shadow: none;
-  box-shadow: none;
-}
-.gap__inner {
-  height: 5px;
-  background-color: #aeaeae;
-  -webkit-border-radius: 0.1em;
-  -moz-border-radius: 0.1em;
-  -o-border-radius: 0.1em;
-  -ms-border-radius: 0.1em;
-  border-radius: 0.1em;
-}
+.wrapper{margin:0 auto;width:44em}
+ul{list-style-type:none;padding-left:0}
+li{padding:1em;margin-bottom:.5em;-webkit-box-shadow:.1em -.1em 0 .1em rgba(0,0,0,0.2),inset 0 0 0 .15em rgba(0,0,0,0.4),-.1em .1em 0 .1em rgba(0,0,0,0.2);-moz-box-shadow:.1em -.1em 0 .1em rgba(0,0,0,0.2),inset 0 0 0 .15em rgba(0,0,0,0.4),-.1em .1em 0 .1em rgba(0,0,0,0.2);-o-box-shadow:.1em -.1em 0 .1em rgba(0,0,0,0.2),inset 0 0 0 .15em rgba(0,0,0,0.4),-.1em .1em 0 .1em rgba(0,0,0,0.2);-ms-box-shadow:.1em -.1em 0 .1em rgba(0,0,0,0.2),inset 0 0 0 .15em rgba(0,0,0,0.4),-.1em .1em 0 .1em rgba(0,0,0,0.2);box-shadow:.1em -.1em 0 .1em rgba(0,0,0,0.2),inset 0 0 0 .15em rgba(0,0,0,0.4),-.1em .1em 0 .1em rgba(0,0,0,0.2);-webkit-border-radius:.5em;-moz-border-radius:.5em;-o-border-radius:.5em;-ms-border-radius:.5em;border-radius:.5em;text-align:center}
+a{text-decoration:none}
+.gap{padding:0;-webkit-box-shadow:none;-moz-box-shadow:none;-o-box-shadow:none;-ms-box-shadow:none;box-shadow:none}
+.gap__inner{height:5px;background-color:#aeaeae;-webkit-border-radius:.1em;-moz-border-radius:.1em;-o-border-radius:.1em;-ms-border-radius:.1em;border-radius:.1em}

@@ -61,7 +61,8 @@ module.exports = function (grunt) {
                 },
                 files: {
                     'css/<%= pkg.name %>.css': ['css/src/css.styl'],
-                    'css/sublime.css' : 'css/src/sublime.styl'
+                    'css/sublime.css' : 'css/src/sublime.styl',
+                    'css/menu.css' : 'css/src/menu.styl'
                 }
             }
         },
