@@ -7,61 +7,18 @@ html, body
     line-height 1.5em
     height 100%
     overflow hidden
+stripe(color)
+    width 100%
+    height 33%
+    background-color color
 .first
-    background-color #000
-    width 100%
-    height 33%
+    stripe(#000)
 .second
-    background-color #ff0000
-    width 100%
-    height 33%
-    transition height 3s ease-out
-.second:hover
-    height 80%
-    transition height 3s ease-in
+    stripe(#ff0000)
 .third
-    background-color #000
-    width 100%
-    height 33%
+    stripe(#000)
 /*============================================*/
-@keyframes lr
-    0%
-        animation-timing-function ease-in
-    50%
-        animation-timing-function ease-out
-        left 100%
-        /*transform matrix(1, 1, 0, -1, 1, 1);*/
-    100%
-        animation-timing-function ease-in
-@keyframes lr_second
-    0%
-        animation-timing-function ease-in
-    50%
-        animation-timing-function ease-in
-    100%
-        animation-timing-function ease-in
-        left 100%
-        transform matrix(-1, 0, 0, 1, 0, 0)
-@keyframes lr_third
-    0%
-        animation-timing-function ease-in
-    50%
-        animation-timing-function ease-in
-    100%
-        animation-timing-function ease-in
-        left 100%
-        transform matrix(-1, 1, 0, 1, 0, 0)
-@keyframes ud
-    0%
-        animation-timing-function ease-in
-        transform rotate(180deg)
-    50%
-        animation-timing-function ease-in
-    100%
-        animation-timing-function ease-in
-        top 100%
-/*============================================*/
-.box {
+.box
     position absolute
     left 0
     top 0
@@ -69,14 +26,22 @@ html, body
     height 300px
     opacity 0.5
     background-color #339999
-}
-.column {
+
+column(animation)
     height 100%
     position relative
     left 0
-    animation lr 3s alternate infinite
-}
-.ball, .nyan_ball {
+    animation(animation)
+
+.column
+    column(lr 3s alternate infinite)
+.column_second
+    column(lr_second 5s alternate infinite)
+.column_third
+    column(lr_third 10s alternate infinite)
+
+.ball
+.nyan_ball
     position relative
     left 0
     bottom 0
@@ -85,51 +50,35 @@ html, body
     border-radius 100%
     background red
     animation ud 2.3s alternate infinite
-}
-.column_second {
-    height 100%
-    position relative
-    left 0
-    animation lr_second 5s alternate infinite
-}
-.column_third {
-    height 100%
-    position relative
-    left 0
-    animation lr_third 10s alternate infinite
-}
 /* =================================== */
-.nyan {
+.nyan
     width 70px
     height 100px
     background url(../i/nyan-cat-vert_small.gif) 0 0 no-repeat transparent
-}
-.nyan_type_vertical {
+.nyan_type_vertical
     width 280px
     height 400px
     background url(../i/nyan-cat-vert.gif) 0 0 no-repeat transparent
     display none
     opacity 1
     transition opacity 5s
-}
-.nyan_type_vertical:hover {
-    opacity 0
-    transition opacity 1s
-}
-.wrapper {
+
+    &:hover
+        opacity 0
+        transition opacity 1s
+
+.wrapper
     position absolute
     top 0
     left 0
     width 100%
     height 100%
     padding 0 280px 400px 0
-}
-.innerWrapper {
+.innerWrapper
     width 100%
     height 100%
-}
 /* ================================= */
-.shareWrapper {
+.shareWrapper
     position absolute
     top 0
     right 0
@@ -141,8 +90,25 @@ html, body
     transition-property width height
     transition-duration 1s
     transition-timing-function ease-in
-}
-.shareWrapperInner {
+
+    &:hover
+        width 250px
+        height 32px
+
+        transition-timing-function ease-out
+        transition-property width height
+        transition-duration 1s
+        &  .shareWrapperInner
+            width 250px
+            height 30px
+            border-radius 0
+            padding-left 5px
+            border-left 10px solid #000
+
+            transition-timing-function ease-out
+            transition-property width height border-radius border-left padding
+            transition-duration 1s
+.shareWrapperInner
     width 20px
     height 30px
     border-left 1px solid #000
@@ -155,23 +121,44 @@ html, body
     transition-property width height border-radius border-left padding
     transition-duration 1s
     transition-timing-function ease-in
-}
-.shareWrapper:hover  {
-    width 250px
-    height 32px
-
-    transition-timing-function ease-out
-    transition-property width height
-    transition-duration 1s
-}
-.shareWrapper:hover  .shareWrapperInner {
-    width 250px
-    height 30px
-    border-radius 0
-    padding-left 5px
-    border-left 10px solid #000
-
-    transition-timing-function ease-out
-    transition-property width height border-radius border-left padding
-    transition-duration 1s
-}
+/*============================================*/
+@keyframes lr
+    0%
+        left 0
+        animation-timing-function ease-in
+    50%
+        animation-timing-function ease-out
+        left 100%
+        /*transform matrix(1, 1, 0, -1, 1, 1);*/
+    100%
+        animation-timing-function ease-in
+@keyframes lr_second
+    0%
+        left 0
+        animation-timing-function ease-in
+    50%
+        animation-timing-function ease-in
+    100%
+        animation-timing-function ease-in
+        left 100%
+        /*transform matrix(-1, 0, 0, 1, 0, 0)*/
+@keyframes lr_third
+    0%
+        left 0
+        animation-timing-function ease-in
+    50%
+        animation-timing-function ease-in
+    100%
+        animation-timing-function ease-in
+        left 100%
+        /*transform matrix(-1, 1, 0, 1, 0, 0)*/
+@keyframes ud
+    0%
+        top 0
+        transform rotate(180deg)
+        animation-timing-function ease-in
+    50%
+        animation-timing-function ease-in
+    100%
+        animation-timing-function ease-in
+        top 100%
