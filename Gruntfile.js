@@ -1,8 +1,3 @@
-/*global module:false*/
-var mountFolder = function (connect, point) {
-    return connect.static(require('path').resolve(point));
-};
-
 module.exports = function (grunt) {
 
     require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
@@ -35,10 +30,7 @@ module.exports = function (grunt) {
             },
             stylus : {
                 files : 'css/src/*.styl',
-                tasks : 'stylus',
-                options: {
-                    livereload: true
-                }
+                tasks : 'stylus'
             }
 
         },
@@ -58,25 +50,19 @@ module.exports = function (grunt) {
             }
         },
         connect: {
-            dist: {
+            server: {
                 options: {
                     port: 1080,
-                    hostname: 'localhost',
-                    middleware: function (connect) {
-                        return [mountFolder(connect, './')];
-                    }
+                    base: '.',
+                    livereload: true,
+                    open: 'http://localhost:1080'
                 }
-            }
-        },
-        open: {
-            dist: {
-                path: 'http://localhost:1080'
             }
         }
     });
 
     // Default task.
-    grunt.registerTask('default', ['build', 'connect', 'open', 'watch']);
+    grunt.registerTask('default', ['build', 'connect', 'watch']);
     grunt.registerTask('build', ['jshint', 'uglify', 'stylus']);
 
 };
