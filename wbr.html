@@ -1,0 +1,18 @@
+<!doctype html>
+<html>
+  <head>
+    <title>WBR-ish stuff</title>
+    <style>
+      .box {
+        width: 200px;
+        border: 1px solid blue;
+      }
+      wbr:after {
+        content: '\200b';
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">Rindfleischetikettierung<wbr>süberwachungs<wbr>aufgabenübertragungsgesetz</div>
+  </body>
+</html>
