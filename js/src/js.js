@@ -2,7 +2,7 @@
 (function () {
     $.fn.evilbgslider = function (elem, options) {
         var o = $.extend({
-                nyanSpeed: 10,
+                nyanSpeed: 5,
                 frameWidth: parseInt($(this).css('width'), 10),
                 frameHeight: parseInt($(this).css('height'), 10),
                 nyanWidth: parseInt($(elem).css('width'), 10),
@@ -21,7 +21,7 @@
                     $(elem).css('left', Math.floor(Math.random() * (o.frameWidth - o.nyanWidth)) + 'px');
                 }
                 $(elem).css('bottom', offset + 'px');
-                setTimeout(nyan, 50);
+                requestAnimationFrame(nyan);
             };
             nyan();
         })();
