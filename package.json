@@ -9,7 +9,7 @@
     "grunt": "1.0.3",
     "matchdep": "2.0.0",
     "grunt-contrib-stylus": "1.2.0",
-    "grunt-contrib-jshint": "1.1.0",
+    "grunt-contrib-jshint": "2.0.0",
     "grunt-contrib-uglify": "4.0.0",
     "grunt-contrib-connect": "2.0.0",
     "grunt-contrib-watch": "1.1.0"
