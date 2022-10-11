@@ -1,9 +1,9 @@
 {
   "name": "cy6erskunk.github.com",
   "version": "0.2.0",
+  "source": ["src/index.html", "src/yass/index.html", "src/yas/index.html", "src/js.html", "src/sublime.html", "src/wbr.html"],
   "scripts": {
-    "parcel": "parcel src/index.html",
-    "parcel-build": "parcel build src/index.html"
+    "parcel": "parcel"
   },
   "private": true,
   "devDependencies": {
