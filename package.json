@@ -1,7 +1,14 @@
 {
   "name": "cy6erskunk.github.com",
   "version": "0.2.0",
-  "source": ["src/index.html", "src/yass/index.html", "src/yas/index.html", "src/js.html", "src/sublime.html", "src/wbr.html"],
+  "source": [
+    "src/index.html",
+    "src/yass/index.html",
+    "src/yas/index.html",
+    "src/js.html",
+    "src/sublime.html",
+    "src/wbr.html"
+  ],
   "scripts": {
     "parcel": "parcel",
     "pages": "npm run parcel build && mkdir _site && cp -R dist/* _site && cp -R public/* _site"
