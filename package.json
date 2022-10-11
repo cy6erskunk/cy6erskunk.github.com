@@ -2,10 +2,12 @@
   "name": "cy6erskunk.github.com",
   "version": "0.2.0",
   "scripts": {
-    "parcel": "parcel src/index.html"
+    "parcel": "parcel src/index.html",
+    "parcel-build": "parcel build src/index.html"
   },
   "private": true,
   "devDependencies": {
-    "parcel": "^2.7.0"
+    "@parcel/transformer-stylus": "2.7.0",
+    "parcel": "2.7.0"
   }
 }
