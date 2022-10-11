@@ -1,17 +1,14 @@
 {
   "name": "cy6erskunk.github.com",
   "version": "0.2.0",
+  "source": ["src/index.html", "src/yass/index.html", "src/yas/index.html", "src/js.html", "src/sublime.html", "src/wbr.html"],
   "scripts": {
-    "grunt": "grunt"
+    "parcel": "parcel",
+    "pages": "npm run parcel build && mkdir _site && cp -R dist/* _site && cp -R public/* _site"
   },
   "private": true,
   "devDependencies": {
-    "grunt": "1.4.1",
-    "matchdep": "2.0.0",
-    "grunt-contrib-stylus": "1.2.0",
-    "grunt-contrib-jshint": "2.1.0",
-    "grunt-contrib-uglify": "4.0.1",
-    "grunt-contrib-connect": "2.0.0",
-    "grunt-contrib-watch": "1.1.0"
+    "@parcel/transformer-stylus": "2.7.0",
+    "parcel": "2.7.0"
   }
 }
