@@ -15,7 +15,7 @@
   },
   "private": true,
   "devDependencies": {
-    "@parcel/transformer-stylus": "2.7.0",
-    "parcel": "2.7.0"
+    "@parcel/transformer-stylus": "2.8.0",
+    "parcel": "2.8.0"
   }
 }
